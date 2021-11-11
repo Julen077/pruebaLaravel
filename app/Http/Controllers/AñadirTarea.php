@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Tareas;
-
+use Illuminate\Support\Facades\DB;
 
 class AñadirTarea extends Controller
 {
@@ -14,4 +14,14 @@ class AñadirTarea extends Controller
         ]);
         return redirect("/proyecto");
     }
+    
+    function mostrar(){
+        $tareasDB = DB::table('tareas')->get();
+        return view('/proyecto',['tareas' => $tareasDB]);
+    }
+    function borrar($id){
+        DB::table('tareas')->where('id', '=', $id)->delete();
+        return redirect('/proyecto');
+    }
+    
 }

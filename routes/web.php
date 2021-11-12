@@ -20,8 +20,8 @@ Route::get('/', function () {
 Route::get('/proyecto', function () {
     return view('proyecto');
 });
-Route::get('/proyecto/nombreTarea', [AñadirTarea::class, 'crear']);
+Route::post('/proyecto/nombreTarea', [AñadirTarea::class, 'crear']);
 
 Route::get('/proyecto', [AñadirTarea::class,'mostrar']);
 
-Route::get('/proyecto{id}', [AñadirTarea::class,'borrar($id)']);
+Route::delete('/proyecto/{id}', [AñadirTarea::class,'borrar']);

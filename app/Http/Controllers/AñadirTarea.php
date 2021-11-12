@@ -20,8 +20,10 @@ class AñadirTarea extends Controller
         return view('/proyecto',['tareas' => $tareasDB]);
     }
     function borrar($id){
-        DB::table('tareas')->where('id', '=', $id)->delete();
+        //DB::table('tareas')->where('id', '=', $id)->delete();
+        Tareas::destroy($id);
         return redirect('/proyecto');
     }
+    
     
 }

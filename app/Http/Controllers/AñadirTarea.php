@@ -10,7 +10,7 @@ class AñadirTarea extends Controller
 {
     function crear(Request $request){
         Tareas::create([
-            'nombreTarea' => $request -> get('nombreTarea'),
+            'nombreTarea' => $request -> post('nombreTarea'),
         ]);
         return redirect("/proyecto");
     }

@@ -13,10 +13,10 @@
     <br>
     <div style="border: 2px solid black; width: 300px; height : 500px; text-align: center; background-color: white;">
         <h2>Lista de Task</h2>
-        <table table border="1">
+        <table table border="20">
             <tr>
-                <td>Nombre</td>
-                <td>Eliminar</td>
+                <td><b>Nombre</b></td>
+                <td><b>Eliminar</b></td>
             @if(count($tareas) > 0)
                             @foreach($tareas as $tarea)
                             <tr>
@@ -25,7 +25,7 @@
                                     <form method="POST" action="/proyecto/{{$tarea->id}}">
                                         {{ @csrf_field() }}
                                         @method('delete')
-                                        <input type="submit" class="btn bg-danger" value="X"/>
+                                        <input type="submit" style="background-color:aqua;" value="X"/>
                                     </form>
                                 </td>
                             </tr>

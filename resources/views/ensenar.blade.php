@@ -15,7 +15,7 @@
                                     <td>{{ $tarea->nombreTarea }}</td>
                                     <td>{{ $tarea->campoTexto }}</td>
                                     <td>
-                                        <form method="POST" action="task/eliminar/{{$tarea->id}}">
+                                        <form method="POST" action="/task/eliminar/{{$tarea->id}}">
                                             {{ @csrf_field() }}
                                             @method('delete')
                                             <input type="submit" style="background-color:aqua;" value="X"/>

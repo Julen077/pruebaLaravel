@@ -14,14 +14,21 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+Route::get('/', function(){
+    return view("tareas");
 });
-Route::get('/proyecto', function () {
-    return view('proyecto');
+
+Route::get('task/ensenar',[AñadirTarea::class,'mostrar']);
+
+Route::get('task/crear', function(){
+    return view("crear",['error' => ""]);
 });
-Route::post('/proyecto/nombreTarea', [AñadirTarea::class, 'crear']);
 
-Route::get('/proyecto', [AñadirTarea::class,'mostrar']);
+Route::post('task/crear', [AñadirTarea::class, 'crear']);
 
-Route::delete('/proyecto/{id}', [AñadirTarea::class,'borrar']);
+Route::delete('task/eliminar/{id}', [AñadirTarea::class,'borrar']);
+
+Route::get('task/buscar',function(){
+    return view("busqueda", ['tareas' => []]);
+});
+Route::post('task/buscar',[AñadirTarea::class,'buscar']);

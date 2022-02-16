@@ -16,6 +16,7 @@ class TablaMigracionTareas extends Migration
         Schema::create('tareas', function (Blueprint $table) {
             $table->id();
             $table->string('nombreTarea');
+            $table->string('campoTexto');
             $table->timestamps();
            });
     }
